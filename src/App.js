@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ActivationPage, BestSellingPage, EventPage, FAQPage, HomePage, LoginPage, ProductPages, SignupPage, } from './Routes'
+import { ActivationPage, BestSellingPage, EventPage, FAQPage, HomePage, LoginPage, ProductDetailsPage, ProductPages, ProfilePage, SignupPage, } from './Routes'
 
 import './App.css'
 import { ToastContainer} from 'react-toastify'
@@ -33,9 +33,11 @@ const App = () => {
         element={<ActivationPage />}
       />
        <Route path="/products" element={<ProductPages/>} />
+       <Route path="/product/:name" element={<ProductDetailsPage/>} />
        <Route path="/best-selling" element={<BestSellingPage/>} />
        <Route path="/events" element={<EventPage/>} />
        <Route path="/faq" element={<FAQPage/>} />
+       <Route path="/profile" element={<ProfilePage/>} />
     </Routes>
     <ToastContainer
       position="bottom-center"
