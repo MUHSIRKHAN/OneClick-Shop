@@ -13,6 +13,7 @@ import Store from './redux/store';
 
 ReactDOM.render(
   <Provider store={Store}>
+    
   
     <App/>
   

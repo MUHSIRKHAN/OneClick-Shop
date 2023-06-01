@@ -195,6 +195,7 @@ const Header = ({ activeHeading }) => {
               </div>
             </div>
           </div>
+          {/*mobile header*/}
         </>
       )
     

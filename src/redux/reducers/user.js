@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 const initialState = {
     isAuthenticated: false,
+    loading: false,
     
     
     
@@ -8,6 +9,7 @@ const initialState = {
   
   export const userReducer = createReducer(initialState, {
     LoadUserRequest: (state) => {
+      
       state.loading = true;
     },
     LoadUserSuccess: (state, action) => {
