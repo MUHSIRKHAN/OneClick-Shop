@@ -27,14 +27,14 @@ const ProfileSidebar = ({setActive,active}) => {
     <div className='w-full bg-white shadow-sm rounded-[10px] p-4 pt-8'>
         <div className='flex items-center cursor-pointer w-full mb-8' onClick={()=>setActive(1)}>
             <RxPerson size={20} color={active===1 ? "red":""}/>
-            <span className={`pl-3 ${active===1 ? "text-[red]":""}800px:block hidden`}>PROFILE
+            <span className={`pl-3 ${active===1 ? "text-[red]":""} 800px:block hidden `}>PROFILE
 
             </span>
 
         </div>
         <div className='flex items-center cursor-pointer w-full mb-8' onClick={()=>setActive(2)}>
             <HiOutlineShoppingBag size={20} color={active===2 ? "red":""}/>
-            <span className={`pl-3 ${active===2 ? "text-[red]":""}800px:block hidden`}>ORDERS
+            <span className={`pl-3 ${active===2 ? "text-[red]":""} 800px:block hidden`}>ORDERS
 
             </span>
 

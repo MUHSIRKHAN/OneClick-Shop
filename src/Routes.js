@@ -8,6 +8,9 @@ import EventPage from "./pages/EventPage"
 import FAQPage from "./pages/FAQPage"
 import ProductDetailsPage from "./pages/ProductDetailsPage"
 import ProfilePage from "./pages/ProfilePage"
+import CheckOutPage from "./pages/CheckOutPage"
+import ShopCreatePage from "./pages/ShopCreatePage"
+import SellerActivationPage from "./pages/SellerActivationPage"
 
 
 export{
@@ -20,6 +23,9 @@ export{
     EventPage,
     FAQPage,
 ProductDetailsPage,
-ProfilePage
+ProfilePage,
+CheckOutPage,
+ShopCreatePage,
+SellerActivationPage
 
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ActivationPage, BestSellingPage, EventPage, FAQPage, HomePage, LoginPage, ProductDetailsPage, ProductPages, ProfilePage, SignupPage, } from './Routes'
+import { ActivationPage, BestSellingPage, CheckOutPage, EventPage, FAQPage, HomePage, LoginPage, ProductDetailsPage, ProductPages, ProfilePage, SellerActivationPage, ShopCreatePage, SignupPage, } from './Routes'
 
 import './App.css'
 import { ToastContainer} from 'react-toastify'
@@ -34,17 +34,31 @@ const App = () => {
         path="/activation/:activation_token"
         element={<ActivationPage />}
       />
+      <Route
+        path="/seller/activation/:activation_token"
+        element={<SellerActivationPage />}
+      />
        <Route path="/products" element={<ProductPages/>} />
        <Route path="/product/:name" element={<ProductDetailsPage/>} />
        <Route path="/best-selling" element={<BestSellingPage/>} />
        <Route path="/events" element={<EventPage/>} />
        <Route path="/faq" element={<FAQPage/>} />
+       <Route path="/checkout" element={
+        <ProtectedRoute  isAuthenticated={isAuthenticated}>
+       
+       <CheckOutPage/>
+       </ProtectedRoute>
+       }
+       />
+       
        <Route path="/profile" element={
         <ProtectedRoute isAuthenticated={isAuthenticated}>
           <ProfilePage/>
         </ProtectedRoute>
        } />
+         <Route path="/shop-create" element={<ShopCreatePage/>} />
     </Routes>
+    
     <ToastContainer
       position="bottom-center"
       autoClose={5000}

@@ -46,7 +46,7 @@ const ProfileContent = ({ active }) => {
           <br />
           <br />
           <div className="w-full px-5">
-            <form onSubmit={handleSubmit} aria-required={true}>
+            <form onSubmit={handleSubmit} >
               <div className="w-full 800px:flex block pb-3">
                 <div className="w-[100%] 800px:w-[50%]">
                   <label className="block pb-2">FULL NAME</label>
@@ -114,7 +114,7 @@ const ProfileContent = ({ active }) => {
                 </div>
               </div>
               <input
-                className={`w-[250px] h-[40px] border bg-[#7c183d] border-[#3a24db] text-center text-[#7c183d]] rounded-[3px] mt-8 cursor-pointer`}
+                className={`w-[250px] h-[40px] border bg-[#7c183d] border-[#fff] text-center text-[white] rounded-[3px] mt-8 cursor-pointer`}
                 required
                 value="Update"
                 type="submit"
