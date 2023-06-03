@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage"
 import CheckOutPage from "./pages/CheckOutPage"
 import ShopCreatePage from "./pages/ShopCreatePage"
 import SellerActivationPage from "./pages/SellerActivationPage"
+import ShopLoginPage from "./pages/ShopLoginPage"
 
 
 export{
@@ -26,6 +27,7 @@ ProductDetailsPage,
 ProfilePage,
 CheckOutPage,
 ShopCreatePage,
-SellerActivationPage
+SellerActivationPage,
+ShopLoginPage
 
 }

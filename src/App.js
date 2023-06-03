@@ -1,28 +1,35 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ActivationPage, BestSellingPage, CheckOutPage, EventPage, FAQPage, HomePage, LoginPage, ProductDetailsPage, ProductPages, ProfilePage, SellerActivationPage, ShopCreatePage, SignupPage, } from './Routes'
+import { BrowserRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { ActivationPage, BestSellingPage, CheckOutPage, EventPage, FAQPage, HomePage, LoginPage, ProductDetailsPage, ProductPages, ProfilePage, SellerActivationPage, ShopCreatePage, ShopLoginPage, SignupPage, } from './Routes'
 
 import './App.css'
 import { ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { loadUser } from './redux/actions/user'
+import { loadSeller, loadUser } from './redux/actions/user'
 import Store from './redux/store'
 import { useSelector } from 'react-redux'
 import ProtectedRoute from './ProtectedRoute'
+import { ShopHomePage } from './ShopRoutes'
+import ShopProtectedRoute from './ShopProtectedRoute'
 
 
 const App = () => {
-  const{loading,isAuthenticated}=useSelector((state)=>state.user)
-  console.log(isAuthenticated);
+   
+  const{loading,isAuthenticated}=useSelector((state)=>state.user);
+  const{isLoading,isSellerAuthenticated}=useSelector((state)=>state.seller)   //refucer name
+ 
+ 
   useEffect(() => {
     Store.dispatch(loadUser())
+    Store.dispatch(loadSeller())
+   
   }, [])
-
+  
   return (
  <>
  {
-  loading ? (
+  loading || isLoading ? (
     null
   ):(
     <BrowserRouter>
@@ -56,7 +63,13 @@ const App = () => {
           <ProfilePage/>
         </ProtectedRoute>
        } />
+       {/*shop Routes*/}
          <Route path="/shop-create" element={<ShopCreatePage/>} />
+         <Route path="/shop-login" element={<ShopLoginPage/>} />
+         <Route path="/shop/:id" element={
+          <ShopProtectedRoute isSellerAuthenticated={isSellerAuthenticated}>
+<ShopHomePage/>
+          </ShopProtectedRoute>}/> 
     </Routes>
     
     <ToastContainer
